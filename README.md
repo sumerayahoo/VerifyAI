@@ -76,6 +76,7 @@ python app.py
 Kaggle
 
 ## Author
-Sumera Feroz Yahoo,
+Sumera Feroz Yahoo  github:https://github.com/sumerayahoo ,
 Suhani Bhargava
+github: https://github.com/suhanidop-lang?tab=overview&from=2026-06-01&to=2026-06-14
 
