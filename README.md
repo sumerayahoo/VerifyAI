@@ -68,7 +68,7 @@ python app.py
 - TF-IDF Vectorizer
 - HTML, CSS, JavaScript
 
-## 📦 Dataset
+## Dataset
 Kaggle
 
 ## Author
