@@ -5,7 +5,7 @@
 A machine learning web application that detects whether a news article is **real or fake** using Natural Language Processing (NLP) and Scikit-learn.
 
 ##Live Demo
-[Add your link here once deployed]
+https://verifyai4.vercel.app/
 
 ## Project Structure
 VerifyAI/
