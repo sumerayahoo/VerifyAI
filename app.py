@@ -1,21 +1,39 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import requests
 import pickle
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = "ae2cc91211ed42a495cd19aa11193e78"  # better: use environment variable
+API_KEY = os.environ.get("NEWS_API_KEY")
 
 # Load model
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
+# ← Logo animation loads first
+@app.route("/")
+def home():
+    return send_from_directory(".", "logo.html")
+
+# ← Main website
+@app.route("/verify.html")
+def verify():
+    return send_from_directory(".", "verify.html")
+
+# ← Serve CSS and JS files too!
+@app.route("/style.css")
+def styles():
+    return send_from_directory(".", "style.css")
+
+@app.route("/script.js")
+def scripts():
+    return send_from_directory(".", "script.js")
 
 def get_real_news(query):
     url = "https://newsapi.org/v2/everything"
-
     params = {
         "q": query,
         "language": "en",
@@ -23,45 +41,31 @@ def get_real_news(query):
         "pageSize": 3,
         "apiKey": API_KEY
     }
-
     response = requests.get(url, params=params)
     data = response.json()
-
     articles = []
-
     for article in data.get("articles", []):
         articles.append({
             "title": article["title"],
             "url": article["url"],
             "source": article["source"]["name"]
         })
-
     return articles
-
 
 @app.route("/predict", methods=["POST"])
 def predict():
-
     data = request.get_json()
     news = data["news"]
-
-    # ML prediction
     vector = vectorizer.transform([news])
     pred = model.predict(vector)[0]
-
     label = "Real News" if pred == 1 else "Fake News"
-
-    # 🔥 NewsAPI verification
     related_news = get_real_news(news[:100])
     score = model.decision_function(vector)[0]
-
     return jsonify({
         "prediction": label,
-        "score":float(score),
+        "score": float(score),
         "related_news": related_news
     })
-
-
 
 if __name__ == "__main__":
     print("Flask server starting...")
