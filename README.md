@@ -72,6 +72,6 @@ python app.py
 Kaggle
 
 ## Author
-Sumera Feroz Yahoo
+Sumera Feroz Yahoo,
 Suhani Bhargava
 
