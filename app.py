@@ -7,30 +7,23 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-API_KEY = os.environ.get("NEWS_API_KEY")
+API_KEY = os.environ.get("ae2cc91211ed42a495cd19aa11193e78")
 
 # Load model
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
-# ← Logo animation loads first
 @app.route("/")
 def home():
     return send_from_directory(".", "logo.html")
 
-# ← Main website
 @app.route("/verify.html")
 def verify():
     return send_from_directory(".", "verify.html")
 
-# ← Serve CSS and JS files too!
-@app.route("/style.css")
-def styles():
-    return send_from_directory(".", "style.css")
-
-@app.route("/script.js")
-def scripts():
-    return send_from_directory(".", "script.js")
+@app.route("/<path:filename>")
+def serve_file(filename):
+    return send_from_directory(".", filename)
 
 def get_real_news(query):
     url = "https://newsapi.org/v2/everything"
