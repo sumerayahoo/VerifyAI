@@ -10,19 +10,23 @@ https://verifyai4.vercel.app/
 ## Project Structure
 VerifyAI/
 
-├── index.html          # Logo animation intro
+├── logo.html          # Logo animation intro
 
-├── style.css           # Styling
+├── logo.css           # Styling
 
-├── script.js           # Animation logic
+├── logo.js           # Animation logic
 
 ├── verify.html         # Main website
+
+├── verify.css        # Styling
+
+├── verify.js         # logic
 
 ├── app.py              # Flask backend
 
 ├── model.pkl           # Trained fake news detection model
 
-├── notebook.ipynb      # Model training notebook
+├── untitiled.ipynb      # Model training notebook
 
 ├── data.csv            # News dataset
 
