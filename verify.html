@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifyAI - Fake News Detector</title>
+
+    <link rel="stylesheet" href="verify.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-animation"></div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            Verify<span>AI</span>
+        </div>
+
+        <button id="themeToggle">
+            🌙
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <h1>
+            The Internet LIES<br>
+            Find the TRUTH with VerifyAI
+        </h1>
+
+        <p>
+            VerifyAI analyzes news articles using Machine Learning
+            and cross-checks them with real-time news sources.
+        </p>
+
+        <div class="detector-card">
+
+            <textarea
+                id="newsInput"
+                placeholder="Paste a news article here..."
+            ></textarea>
+
+            <button id="analyzeBtn">
+                Analyze News
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- RESULT SECTION -->
+    <section class="results-section">
+
+        <div class="result-card">
+
+            <div class="status" id="statusBadge">
+                Waiting for Analysis
+            </div>
+
+            <h3>Prediction Result</h3>
+
+            <div class="confidence">
+                <span id="confidence">--</span>
+            </div>
+
+            <p id="explanation">
+                Enter a news article and click Analyze.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- VERIFIED NEWS -->
+    <section class="news-section">
+
+        <h2>
+            Related Real-Time News
+        </h2>
+
+        <div
+            class="news-grid"
+            id="newsContainer"
+        >
+
+            <!-- Flask news results appear here -->
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 VerifyAI | AI-Powered News Verification
+    </footer>
+
+    <script src="verify.js"></script>
+
+</body>
+</html>

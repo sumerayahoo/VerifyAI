@@ -1,0 +1,145 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Page ── */
+body {
+  background: #F0EDE6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Stage ── */
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Logo wrapper ── */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* ── V icon container ── */
+.v-container {
+  position: relative;
+  width: 110px;
+  height: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Netflix-style colour sweep ── */
+.v-sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #2563EB 0%, #E8621A 100%);
+  transform: scaleY(0);
+  transform-origin: top center;
+  z-index: 1;
+  border-radius: 2px;
+  animation: sweepDown 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.3s forwards;
+}
+
+@keyframes sweepDown {
+  0%   { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+/* ── Gothic V on top ── */
+.v-glyph {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-svg {
+  width: 90px;
+  height: 110px;
+}
+
+/* ── Wordmark ── */
+.wordmark {
+  overflow: hidden;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  width: 0;
+  animation: slideIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.45s forwards;
+  white-space: nowrap;
+}
+
+@keyframes slideIn {
+  0%   { opacity: 0; width: 0; }
+  12%  { opacity: 1; }
+  100% { opacity: 1; width: 320px; }
+}
+
+.wordmark-inner {
+  padding-left: 16px;
+  display: flex;
+  align-items: baseline;
+}
+
+.word-verify {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.word-ai {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2563EB 0%, #E8621A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+/* ── Replay button ── */
+.replay-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  transition: all 0.2s ease;
+}
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
